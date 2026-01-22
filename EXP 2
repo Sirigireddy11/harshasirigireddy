@@ -1,27 +1,23 @@
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
-
-int main() {
-    int fd1, fd2;
-    char buf[100];
-    int n;
-
-    fd1 = open("source.txt", O_RDONLY);
-    fd2 = open("dest.txt", O_CREAT | O_WRONLY | O_TRUNC, 0644);
-
-    if (fd1 < 0 || fd2 < 0) {
-        printf("File error!\n");
-        return 0;
-    }
-
-    while ((n = read(fd1, buf, sizeof(buf))) > 0) {
-        write(fd2, buf, n);
-    }
-
-    close(fd1);
-    close(fd2);
-
-    printf("File copied successfully!\n");
-    return 0;
+#include<stdio.h>
+int main(){
+int f,p,i,j=0,k,hit,fault=0;
+int mem[10],ref[20];
+printf("Enter number of frames: ");
+scanf("%d",&f);
+printf("Enter number of pages: ");
+scanf("%d",&p);
+printf("Enter page reference string:\n");
+for(i=0;i<p;i++)scanf("%d",&ref[i]);
+for(i=0;i<f;i++)mem[i]=-1;
+for(i=0;i<p;i++){
+hit=0;
+for(k=0;k<f;k++)
+if(mem[k]==ref[i])hit=1;
+if(hit==0){
+mem[j]=ref[i];
+j=(j+1)%f;
+fault++;
+}}
+printf("Total Page Faults = %d\n",fault);
+return 0;
 }
