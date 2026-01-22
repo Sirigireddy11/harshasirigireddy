@@ -6,7 +6,6 @@ int main() {
     pid_t pid;
     int number;
 
-    // Taking input from user
     printf("Enter a number: ");
     scanf("%d", &number);
 
@@ -16,7 +15,6 @@ int main() {
         printf("Process creation failed!\n");
     }
     else if (pid == 0) {
-        // Child process
         printf("\nChild Process:\n");
         printf("PID  = %d\n", getpid());
         printf("PPID = %d\n", getppid());
@@ -24,7 +22,6 @@ int main() {
         printf("Square of number = %d\n", number * number);
     }
     else {
-        // Parent process
         printf("\nParent Process:\n");
         printf("PID  = %d\n", getpid());
         printf("PPID = %d\n", getppid());
