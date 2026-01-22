@@ -1,25 +1,35 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <sys/types.h>
 
 int main() {
     pid_t pid;
+    int number;
 
-    pid = fork();   
+    // Taking input from user
+    printf("Enter a number: ");
+    scanf("%d", &number);
+
+    pid = fork();
 
     if (pid < 0) {
         printf("Process creation failed!\n");
     }
     else if (pid == 0) {
         // Child process
-        printf("Child Process:\n");
+        printf("\nChild Process:\n");
         printf("PID  = %d\n", getpid());
         printf("PPID = %d\n", getppid());
+        printf("Number entered = %d\n", number);
+        printf("Square of number = %d\n", number * number);
     }
     else {
         // Parent process
-        printf("Parent Process:\n");
+        printf("\nParent Process:\n");
         printf("PID  = %d\n", getpid());
         printf("PPID = %d\n", getppid());
+        printf("Number entered = %d\n", number);
+        printf("Cube of number = %d\n", number * number * number);
     }
 
     return 0;
