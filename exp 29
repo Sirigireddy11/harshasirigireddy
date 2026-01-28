@@ -1,0 +1,23 @@
+#include<stdio.h>
+int main()
+{
+int m,n,i,j;
+printf("Enter blocks:");
+scanf("%d",&m);
+printf("Enter processes:");
+scanf("%d",&n);
+int block[m],process[n],alloc[n];
+for(i=0;i<m;i++)scanf("%d",&block[i]);
+for(i=0;i<n;i++){scanf("%d",&process[i]);alloc[i]=-1;}
+for(i=0;i<n;i++)
+for(j=0;j<m;j++)
+if(block[j]>=process[i])
+{
+alloc[i]=j;
+block[j]-=process[i];
+break;
+}
+for(i=0;i<n;i++)
+printf("%d %d\n",process[i],alloc[i]);
+return 0;
+}
