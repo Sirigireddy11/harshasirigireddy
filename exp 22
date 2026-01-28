@@ -1,0 +1,21 @@
+#include<stdio.h>
+int main()
+{
+printf("Types of Users in Linux\n");
+printf("1.Owner\n");
+printf("2.Group\n");
+printf("3.Others\n\n");
+printf("File Access Permissions\n");
+printf("r : Read\n");
+printf("w : Write\n");
+printf("x : Execute\n\n");
+printf("Permission Representation Example\n");
+printf("rwxr-xr--\n");
+printf("Owner : rwx\n");
+printf("Group : r-x\n");
+printf("Others : r--\n\n");
+printf("Numeric Representation\n");
+printf("r=4 w=2 x=1\n");
+printf("Example : 754 -> rwxr-xr--\n");
+return 0;
+}
